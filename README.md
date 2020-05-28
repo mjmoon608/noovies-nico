@@ -13,3 +13,7 @@ Beautiful Tri-platform (iOS, Android, Web) Application built with React Native &
 
 - 오류가 나서 그냥 react native Swiper 사용하기로 함
   - https://github.com/leecade/react-native-swiper#installation
+
+## 3.2 Slider Background
+
+- compoenet들을 저장할 components 폴더를 만들고 component를 만들 때 screen이름과 같게 저장을 하면 나중에 component가 어디에 있는지 쉽게 찾을 수 있다.

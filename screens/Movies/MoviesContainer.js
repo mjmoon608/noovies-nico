@@ -30,6 +30,7 @@ export default () => {
   };
   useEffect(() => {
     getData();
+    console.log(nowPlaying);
   }, []);
 
   return <MoviesPresenter />;

@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components/native";
 import Swiper from "react-native-swiper";
-import { Dimensions } from "react-native";
+import { Dimensions, ActivityIndicator } from "react-native";
 // import Swiper from "react-native-swiper";
 
 const { width, height } = Dimensions.get("screen");
+
+const Container = styled.View`
+  flex: 1;
+  background-color: black;
+  justify-content: center;
+`;
 
 const Header = styled.View`
   width: 100%;
@@ -18,18 +24,20 @@ const Section = styled.View`
 
 const Text = styled.Text``;
 
-export default () => (
-  <Header>
-    <Swiper>
-      <Section>
-        <Text>Hello1</Text>
-      </Section>
-      <Section>
-        <Text>Hello2</Text>
-      </Section>
-      <Section>
-        <Text>Hello3</Text>
-      </Section>
-    </Swiper>
-  </Header>
+export default ({ loading, nowPlaying }) => (
+  <Container>
+    {loading ? (
+      <ActivityIndicator color="white" size="small" />
+    ) : (
+      <Header>
+        <Swiper autoplay={true} autoplayTimeout={3}>
+          {nowPlaying.map((movie) => (
+            <Section key={movie.id}>
+              <Text>{movie.original_title}</Text>
+            </Section>
+          ))}
+        </Swiper>
+      </Header>
+    )}
+  </Container>
 );
